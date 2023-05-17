@@ -11,13 +11,13 @@ node_modules
 dist
 package-lock.json
 dist-ssr
+.env
 *.local
 
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
 .ideae
-.env
 .DS_Store
 *.suo
 *.ntvs*
