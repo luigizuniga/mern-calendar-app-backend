@@ -32,6 +32,36 @@ const createUser = async(req, res = response ) =>{
     }
 } 
 
+const loginUser = async(req, res = response) => { 
+    const { email, password } = req.body;
+
+    try {
+        const user = await User.findOne({ email });
+
+        if( !user ) {
+            return res.status(400).json({
+                ok:false,
+                msg: 'This user already not exists'   
+            });
+        }
+
+        res.json({
+            ok: true,
+            uid: user.id,
+            name: user.name,
+            password: user.password
+        });  
+
+    } catch (error) {
+           console.log(error);
+        res.status(500).json({
+            ok: false,
+            msg:'Contact with your Admin'
+        }); 
+    }
+}
+
 module.exports = {
-    createUser
+    createUser,
+    loginUser
 }
