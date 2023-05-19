@@ -1,0 +1,246 @@
+{
+	"info": {
+		"_postman_id": "67ca94de-c6d2-4581-a7f9-84c80b420088",
+		"name": "MERN Calendar",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3043375"
+	},
+	"item": [
+		{
+			"name": "Auth - Crear usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Eduardo\",\n    \"email\": \"eduardo@gmail.com\",\n    \"password\": \"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/api/auth/new",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"auth",
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Auth - Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"eduardo@gmail.com\",\n    \"password\": \"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/api/auth",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Auth - Renew",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MjllMjVhZDdhOWQzMTMwNWE3Yzc5ZjIiLCJuYW1lIjoiRWR1YXJkbyIsImlhdCI6MTY1NDUzMTU0NiwiZXhwIjoxNjU0NTM4NzQ2fQ.BgI3edAIA2CKPalX4TuUifAjBlFGMK5rD1u570P6z5U",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Eduardo\",\n    \"email\": \"eduardo@gmail.com\",\n    \"password\": \"123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/api/auth/renew",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"auth",
+						"renew"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Event - Get Eventos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MjllMjVhZDdhOWQzMTMwNWE3Yzc5ZjIiLCJuYW1lIjoiRWR1YXJkbyIsImlhdCI6MTY1NDUzMTU0NiwiZXhwIjoxNjU0NTM4NzQ2fQ.BgI3edAIA2CKPalX4TuUifAjBlFGMK5rD1u570P6z5U",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/api/events",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Event - Crear Evento",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MjllMjVhZDdhOWQzMTMwNWE3Yzc5ZjIiLCJuYW1lIjoiRWR1YXJkbyIsImlhdCI6MTY1NDUzMTU0NiwiZXhwIjoxNjU0NTM4NzQ2fQ.BgI3edAIA2CKPalX4TuUifAjBlFGMK5rD1u570P6z5U",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Cumpleaños del Jefe\",\n    \"start\": 1,\n    \"end\": 1000000,\n    \"notes\": \"Comprar pastel\",\n    \"ACB\": 123\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/api/events",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Event - Actualizar Evento",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MjllMjVhZDdhOWQzMTMwNWE3Yzc5ZjIiLCJuYW1lIjoiRWR1YXJkbyIsImlhdCI6MTY1NDUzMTU0NiwiZXhwIjoxNjU0NTM4NzQ2fQ.BgI3edAIA2CKPalX4TuUifAjBlFGMK5rD1u570P6z5U",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/api/events/123123",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"events",
+						"123123"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Event - Eliminar Evento",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MjllMjVhZDdhOWQzMTMwNWE3Yzc5ZjIiLCJuYW1lIjoiRWR1YXJkbyIsImlhdCI6MTY1NDUzMTU0NiwiZXhwIjoxNjU0NTM4NzQ2fQ.BgI3edAIA2CKPalX4TuUifAjBlFGMK5rD1u570P6z5U",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/api/events/123123",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"events",
+						"123123"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
