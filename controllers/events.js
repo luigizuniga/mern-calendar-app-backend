@@ -1,8 +1,8 @@
 const { response } = require('express');
-const UserEvents = require('../models/UserEvents');
+const Events = require('../models/Event');
 
-const getEvents = async( res = response ) => {
-    const events = await UserEvents.find().populate('user','name');
+const getEvents = async( req, res = response ) => {
+    const events = await Events.find().populate('user','name');
     res.json({
         ok: true,
         events
@@ -10,7 +10,7 @@ const getEvents = async( res = response ) => {
 }
 
 const createEvents = async( req, res = response ) => {
-    const event = new UserEvents( req.body );
+    const event = new Events( req.body );
 
     try{
         event.user = req.uid;
@@ -30,12 +30,12 @@ const createEvents = async( req, res = response ) => {
     }
 }
 
-const updateEnvent = async(req, res = response ) => {
+const updateEvent = async(req, res = response ) => {
     const eventId = req.params.id;
     const uid = req.uid;
 
     try {
-        const event = await UserEvents.findById( eventId );
+        const event = await Events.findById( eventId );
 
         if(!event) {
             return res.status(404).json({
@@ -56,7 +56,7 @@ const updateEnvent = async(req, res = response ) => {
             user: uid
         }
 
-        const eventUpdated = await UserEvents.findByIdAndUpdate( eventId, newEvent, { new: true } );
+        const eventUpdated = await Events.findByIdAndUpdate( eventId, newEvent, { new: true } );
 
         res.json({
             ok: true,
@@ -76,7 +76,7 @@ const deleteEvent = async(req, res = response )=>{
     const uid = req.uid;
 
     try {
-        const event = await UserEvents.findById( eventId );
+        const event = await Events.findById( eventId );
 
         if(!event) {
             return res.status(404).json({
@@ -93,7 +93,7 @@ const deleteEvent = async(req, res = response )=>{
         }
 
 
-        await UserEvents.findByIdAndDelete( eventId );
+        await Events.findByIdAndDelete( eventId );
 
         res.json({ ok: true }); 
         
@@ -109,5 +109,5 @@ module.exports = {
     createEvents,
     deleteEvent,
     getEvents,
-    updateEnvent
+    updateEvent
 }

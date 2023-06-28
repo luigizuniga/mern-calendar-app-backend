@@ -5,7 +5,7 @@ const { isDate } = require('../helpers/isDate');
 const { validateJWT } = require('../middlewares/validate-jwt');
 const { validatorInputs } = require('../middlewares/validator-inputs');
 
-const { getEvents , createEvents, updateEnvent , deleteEvent } = require('../controllers/user-events');
+const { getEvents , createEvents, updateEvent, deleteEvent } = require('../controllers/events');
 
 const router = Router();
 
@@ -36,7 +36,7 @@ router.put(
         check('end','End date is required').custom( isDate ),
         validatorInputs
     ],
-    updateEnvent
+    updateEvent
 );
 
 //Eliminar event

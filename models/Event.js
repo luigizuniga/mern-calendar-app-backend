@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-const UserEventsSchema = Schema({
+const EventSchema = Schema({
     title : {
         type: String,
         required: true
@@ -23,10 +23,10 @@ const UserEventsSchema = Schema({
     }
 });
 
-UserEventsSchema.method('toJSON', function() {
+EventSchema.method('toJSON', function() {
     const { __v, _id, ...object } = this.toObject();
     object.id = _id;
     return object;
 });
 
-module.exports = model(' user-events' , UserEventsSchema );
+module.exports = model('events' , EventSchema );
